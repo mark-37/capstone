@@ -1,0 +1,11 @@
+{
+    "products": [
+        {
+            "name": "Iphone",
+            "description": "lorem ipsun dorem ipsumet",
+            "manufacturer": "Apple",
+            "price": 500,
+            "quantity": 20
+        }
+    ]
+}
