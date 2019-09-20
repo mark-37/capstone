@@ -23,7 +23,7 @@ export class ProductsService {
   }
 
   /* Method to post product on server */
-  addProducts(productData: product){
+  addProducts(productData: product) {
     return this._http.post(this._url, productData, this.httpOptions);
   }
 
