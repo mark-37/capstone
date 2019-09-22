@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
 
-import {createLogger, format, transports} from 'winston';
+import { LoggerBuilder, LogLevel, ConsoleMessageHandler, LoggerConfigurationBuilder } from "simplr-logger";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class LoggingService {
-    logger = createLogger({
-        transports: [
-            new transports.Console(),
-            new transports.File({ filename: 'combined.log' })
-        ]
-    });
 
-    // https://www.npmjs.com/package/simplr-logger
+     private logger = new LoggerConfigurationBuilder()
+     .SetDefaultLogLevel( environment.production ? LogLevel.Warning : LogLevel.Trace )
+     .AddWriteMessageHandlers([
+        { Handler: new ConsoleMessageHandler() }])
+     .Build();
 
     constructor() {  }
 
-    getWinston() {
-     return this.logger;
+    setLoggerConfiguration() {
+        return this.logger.Prefix = 'Hello';
+    }
+
+    getLogger() {
+      return new LoggerBuilder(this.logger);
     }
 
 }

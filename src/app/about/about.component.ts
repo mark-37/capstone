@@ -11,8 +11,10 @@ import { LoggingService } from '../services/logging.service';
 export class AboutComponent implements OnInit {
 
   constructor() {
-    const logger = new LoggingService;
-    console.log(logger);
+    const logger = new LoggingService();
+    const Logger = logger.getLogger();
+    
+    Logger.Error('Information');
   }
 
   ngOnInit() {
