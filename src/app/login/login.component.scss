@@ -1,0 +1,44 @@
+.login-component {
+    
+}
+
+.row {
+   margin-right: 0 !important;
+}
+
+.submit-btn {
+    margin: auto;
+    display: table;
+}  
+
+.modal-body {
+    padding: 0 !important;
+    background-image: linear-gradient(to left bottom,rgba(44, 5, 255, 0.68), rgba(0, 0, 0, 0.3)), url('../../assets/city_flip.jpg');
+    background-size: cover;
+
+    .hero-text {
+        color: white;
+        font-size: 2rem;
+    }
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-top: 3%;
+    padding-bottom: 3%;
+    color: white;
+    h3 {
+        color: white
+    }
+    .submit-btn{
+        // background: rgb(0, 0, 0);
+        border-radius: 15px 15px;
+        // color: white;
+        // border: 1px solid black;
+        padding: .3rem 3rem;
+    }
+
+    input, select, textarea{
+        color: #ffffff;
+    }
+}

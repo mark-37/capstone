@@ -7,7 +7,7 @@ import { product } from '../models/product';
 })
 export class ProductsService {
 
-  private _url = 'http://13.235.95.22:3000/products';
+  private _url = 'http://localhost:3000/products';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -28,13 +28,13 @@ export class ProductsService {
   }
 
   /* Method to edit product on server */
-  editProduct() {
-
+  editProduct(productData : product) {
+    return this._http.put(this._url, productData, this.httpOptions );
   }
 
   /* Method to delete product on server */
-  deleteProduct() {
-    
+  deleteProduct(id : number) {
+    return this._http.delete(this._url+`/${id}`, this.httpOptions);
   }
 
 }

@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "",
+      "email": "admin@localhost.com",
+      "pin": 123
+    },
+    {
+      "id": 2,
+      "name": "sammy",
+      "password": "",
+      "email": "sammy@sammy.com",
+      "pin": 123
+    }
+  ]
+}

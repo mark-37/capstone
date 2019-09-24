@@ -9,19 +9,26 @@ import { environment } from 'src/environments/environment';
 
 export class LoggingService {
 
-     private logger = new LoggerConfigurationBuilder()
-     .SetDefaultLogLevel( environment.production ? LogLevel.Warning : LogLevel.Trace )
-     .AddWriteMessageHandlers([
-        { Handler: new ConsoleMessageHandler() }])
-     .Build();
+    private logger;
 
-    constructor() {  }
+    constructor() { }
 
-    setLoggerConfiguration() {
-        return this.logger.Prefix = 'Hello';
+    setLoggerConfiguration(_logger : LoggerBuilder, str ) {
+        // return this.logger.Prefix = 'Hello';
+        // return this.logger.SetPrefix('Hello');
+
+        return _logger.UpdateConfiguration(builder => builder.SetPrefix(str).Build());
     }
 
     getLogger() {
+
+        this.logger = new LoggerConfigurationBuilder()
+        .SetDefaultLogLevel(environment.production ? LogLevel.Warning : LogLevel.Trace)
+        .AddWriteMessageHandlers([
+            { Handler: new ConsoleMessageHandler() }])
+        .Build();
+
+        
       return new LoggerBuilder(this.logger);
     }
 
