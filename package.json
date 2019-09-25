@@ -24,6 +24,8 @@
     "jquery": "^3.4.1",
     "rxjs": "~6.3.3",
     "simplr-logger": "^1.0.1",
+    "ts-md5": "^1.2.6",
+    "uuid": "^3.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

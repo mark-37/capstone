@@ -3,15 +3,36 @@
     {
       "id": 1,
       "name": "admin",
-      "password": "",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "email": "admin@localhost.com",
       "pin": 123
     },
     {
       "id": 2,
       "name": "sammy",
-      "password": "",
+      "password": "abc",
       "email": "sammy@sammy.com",
+      "pin": 123
+    },
+    {
+      "id": "fc3e3ba4-e196-4426-9a61-5c6a06322015",
+      "name": "John",
+      "password": "d41d8cd98f00b204e9800998ecf8427e",
+      "email": "pro.azeem.dev@gmail.com",
+      "pin": null
+    },
+    {
+      "id": "464ba6f4-240d-4e14-ae1f-6ab1c46ccd1e",
+      "name": "",
+      "password": "d41d8cd98f00b204e9800998ecf8427e",
+      "email": "",
+      "pin": null
+    },
+    {
+      "id": "3bb9a772-ab66-49e1-99fc-1a3c88c0fd98",
+      "name": "mark",
+      "password": "900150983cd24fb0d6963f7d28e17f72",
+      "email": "JohnDoe@example.com",
       "pin": 123
     }
   ]

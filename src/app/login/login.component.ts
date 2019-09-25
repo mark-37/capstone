@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 
+
 import { FormsModule, FormGroup, FormControl } from '@angular/forms';
 import { Login } from '../models/login';
+import { AuthenticationService } from '../services/authentication.service';
 
 declare var $: any;
 
@@ -24,24 +26,23 @@ export class LoginComponent implements OnInit {
 
   @ViewChild('loginForm') form: any;
 
-  constructor() {
+  constructor(private loginService: AuthenticationService) {
 
   }
 
   ngOnInit() {
-    $('document').ready(function () {
-      $('#myModal').modal('show');
-    });
+    /* For Testing below */
+    // $('#myModal').modal('show');
   }
 
   /* Getters */
-getEmail(): string {
-  return this.email;
-}
+  getEmail(): string {
+    return this.email;
+  }
 
-getPassword(): string {
-  return this.password;
-}
+  getPassword(): string {
+    return this.password;
+  }
 
 
   /* Setters */
@@ -54,15 +55,43 @@ getPassword(): string {
   }
 
   onSubmit() {
-    if(this.form.valid) {
+
+    if (this.form.valid) {
       console.info("Form is submitted");
-      // console.info(this.form.value.name.email);
+     
       this.setEmail(this.form.value.name.email);
       this.setPassword(this.form.value.name.password);
-      
-      console.log(this.getEmail(), this.getPassword());
-      this.form.reset();
-      // $('#myModal').modal('hide');
+
+      this.loginService.getUsers(this.getEmail()).subscribe((email) => {
+        if (email[0] != undefined) {
+          console.log(email[0]);
+          this.loginService.checkPassword(this.getEmail(), this.getPassword()).subscribe(
+            (data) => {
+              if (data[0] != undefined) {
+                const sessionObject = {
+                  email: data[0].email
+                }
+                localStorage.clear();
+                localStorage.setItem('sessionObject', JSON.stringify(sessionObject));
+                console.log(`Welcome ${email[0].name}`);
+                this.form.reset();
+                $('#myModal').modal('hide');
+              } else {
+                console.log('Password Mismatch!');
+                this.model.password = null;
+                console.log(this.model);
+                alert("Either the entered email is incorrect or password is incorrect!");
+              }
+            },
+            (err) => console.error("Unable to send a get request: " + err)
+          );
+        } else {
+          console.log("Email Not found");
+          alert('Email not found');
+        }
+      },
+        (err) => console.error(err)
+      );
     }
   }
 
