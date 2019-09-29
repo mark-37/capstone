@@ -1,8 +1,11 @@
 export interface product {
     // name,description, manufacturer, price, quantity
+    id: string;
     name: string;
-    description: string;
-    manufacturer: string;
     price: number;
     quantity: number;
+    color: string;
+    manufacturer: string;
+    category: string;
+    description: string;
 }

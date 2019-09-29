@@ -10,6 +10,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ProductsModule } from './products/products.module';
+import { ProductsComponent } from './products/products.component';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import { RegistrationComponent } from './registration/registration.component';
     PageNotFoundComponent,
     AboutComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProductsComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    ProductsModule,
     AppRoutingModule
   ],
   providers: [ ],
