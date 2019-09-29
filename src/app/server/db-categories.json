@@ -1,0 +1,70 @@
+{
+    "categories": [
+        {
+            "category": "Music"
+        },
+        {
+            "category": "Movies"
+        },
+        {
+            "category": "Computers"
+        },
+        {
+            "category": "Baby"
+        },
+        {
+            "category": "Industrial"
+        },
+        {
+            "category": "Health"
+        },
+        {
+            "category": "Clothing"
+        },
+        {
+            "category": "Tools"
+        },
+        {
+            "category": "Automotive"
+        },
+        {
+            "category": "Books"
+        },
+        {
+            "category": "Home"
+        },
+        {
+            "category": "Games"
+        },
+        {
+            "category": "Grocery"
+        },
+        {
+            "category": "Sports"
+        },
+        {
+            "category": "Jewelery"
+        },
+        {
+            "category": "Garden"
+        },
+        {
+            "category": "Toys"
+        },
+        {
+            "category": "Beauty"
+        },
+        {
+            "category": "Electronics"
+        },
+        {
+            "category": "Outdoors"
+        },
+        {
+            "category": "Kids"
+        },
+        {
+            "category": "Shoes"
+        }
+    ]
+}

@@ -20,8 +20,8 @@ import { ProductsComponent } from './products/products.component';
     PageNotFoundComponent,
     AboutComponent,
     LoginComponent,
-    RegistrationComponent,
-    ProductsComponent
+    RegistrationComponent
+    // ProductsComponent
   ],
   imports: [
     HttpClientModule,

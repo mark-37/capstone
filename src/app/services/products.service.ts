@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { product } from '../models/product';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ import { product } from '../models/product';
 export class ProductsService {
 
   private _url = 'http://localhost:3000/products';
+  private _categoriesUrl = 'http://localhost:3000/categories';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -23,18 +24,22 @@ export class ProductsService {
   }
 
   /* Method to post product on server */
-  addProducts(productData: product) {
+  addProducts(productData: Product) {
     return this._http.post(this._url, productData, this.httpOptions);
   }
 
   /* Method to edit product on server */
-  editProduct(productData : product) {
+  editProduct(productData : Product) {
     return this._http.put(this._url, productData, this.httpOptions );
   }
 
   /* Method to delete product on server */
   deleteProduct(id : number) {
     return this._http.delete(this._url+`/${id}`, this.httpOptions);
+  }
+
+  getCategories() {
+    return this._http.get(this._categoriesUrl, this.httpOptions);
   }
 
 }

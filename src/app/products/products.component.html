@@ -1,3 +1,55 @@
-<p>
-  products works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuMenu" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{ currentSelection }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuMenu">
+            <button class="dropdown-item" #dropdownBtn type="button" *ngFor="let cat of categories" (click)="selectThis($event.target)">
+              {{ cat.category }}
+            </button>
+            
+          </div>
+        </div>
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div>
+
+  <!-- <div class="card-columns">
+    <div class="card" *ngFor="let p of products">
+      <div class="card-body bg-primary">
+        <img src="../../assets/Categories/{{p.category}}.jpg" alt="" height="100" width="150">
+      </div>
+    </div>
+  </div> -->
+
+
+</div>
