@@ -22,10 +22,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    /**
-     * For Testing Purpose
-     * $('#registerModal').modal('show');
-     */
+    
+    //  * For Testing Purpose
+    // $('#registerModal').modal('show');
+     
     
   }
 
