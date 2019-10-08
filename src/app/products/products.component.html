@@ -132,8 +132,9 @@
                 <h5>Price: {{ p.price | currency: dollar }}</h5>
               </div>
               <div class="buttons">
-                <button type="button" class="btn btn-dark" (click)="editProduct(this.p)"><i class="fas fa-paper-plane"></i> Edit </button>
-                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+                <button type="button" class="btn btn-dark" (click)="editProduct(this.p)" routerLink="/products/{{ p.id }}"><i class="fas fa-paper-plane"></i> Edit </button>
+                <button type="button" class="btn btn-danger" (click)="deleteProduct(this.p.id)"><i class="fas fa-trash-alt"></i> Delete</button>
+                <!-- <a routerLink="/edit/{{p.id}}" routerLinkActive="active">Heroes</a> -->
               </div>
             </div>
            
@@ -150,8 +151,6 @@
   <!-- <p *ngFor="let p of products | paginate: config"> {{ p.name }} </p> -->
 
   <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-<!-- 
-  <app-login></app-login>
-  <app-registration></app-registration> -->
+
   <!-- </div> -->
 </div>

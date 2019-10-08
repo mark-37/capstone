@@ -34,10 +34,16 @@ export class ProductsService {
   }
 
   /* Method to delete product on server */
-  deleteProduct(id : number) {
+  deleteProduct(id : string) {
     return this._http.delete(this._url+`/${id}`, this.httpOptions);
   }
 
+  /* Method to search a product on server */
+  searchProduct(id: string) {
+    return this._http.get(this._url+`?id=${id}`, this.httpOptions);
+  } 
+
+  /* Method to get categories of a product */ 
   getCategories() {
     return this._http.get(this._categoriesUrl, this.httpOptions);
   }

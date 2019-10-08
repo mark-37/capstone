@@ -7,15 +7,18 @@ import { TruncatePipe } from './trancate.pipe';
 import { LoginComponent } from '../login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from '../registration/registration.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { ProductsRoutingModule } from './products-routing.module';
 
 @NgModule({
-  declarations: [ProductsComponent, TruncatePipe
+  declarations: [ProductsComponent, TruncatePipe, EditProductComponent
     // , LoginComponent, RegistrationComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ProductsRoutingModule
   ]
 })
 export class ProductsModule { }

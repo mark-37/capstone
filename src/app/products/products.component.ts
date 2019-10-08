@@ -104,4 +104,11 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  deleteProduct(data) {
+    this._productService.deleteProduct(data).subscribe(
+      (data)=> console.log(data),
+      (err) => console.error(err)
+    );
+  }
+
 }
