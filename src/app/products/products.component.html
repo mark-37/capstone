@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
@@ -27,29 +27,131 @@
             aria-haspopup="true" aria-expanded="false">
             {{ currentSelection }}
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuMenu">
-            <button class="dropdown-item" #dropdownBtn type="button" *ngFor="let cat of categories" (click)="selectThis($event.target)">
+          <div class="dropdown-menu" id="dpm" aria-labelledby="dropdownMenuMenu">
+            <button class="dropdown-item" #dropdownBtn id="dropdownBtn" *ngFor="let cat of categories"
+              (click)="selectThis($event.target)">
               {{ cat.category }}
             </button>
-            
+
           </div>
         </div>
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+
+        
+
+        <div class="dropdown" id="dropped">
+          <div class="dropdown">
+            
+              <div *ngIf="!isLoggedIn(); else elseBlock" class="loginRegisterButton">
+                <a href="" (click)="sample($event)">Login</a> / 
+                <a href="" (click)="sample($event)">Register</a>
+              </div>
+      
+              <ng-template #elseBlock>
+                <i class="fa fa-user-circle fa-2x dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"></i>
+              </ng-template>
+         
+            <div class="dropdown-menu dropdown-menu-right" id="dropdown-menu-content" aria-labelledby="dropdownMenuButton">
+              <h6 class="dropdown-header" *ngIf="currentUser!=null">Logged in as {{ currentUser.email }} !</h6>
+              <div class="dropdown-items">
+                <button class="btn btn-primary btn-sm" (click)="logout()">Logout Now!</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </form>
     </div>
   </div>
-</nav>
+</nav> -->
 
-<div>
+<div class="container" style="border: 0px solid red;">
+  <!-- <div style="text-align:center">   -->
 
-  <!-- <div class="card-columns">
-    <div class="card" *ngFor="let p of products">
-      <div class="card-body bg-primary">
-        <img src="../../assets/Categories/{{p.category}}.jpg" alt="" height="100" width="150">
+  <!-- <div class="card-columns"> -->
+  <div class="row">
+    <div class="col-md-0"></div>
+    <div class="col-md-12">
+      <div class="card mb-3" *ngFor="let p of products | paginate: config">
+        <div class="row no-gutters">
+          <div class="col-md-2 my-auto">
+            <img src="../../assets/Categories/{{p.category}}.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-7 content-card">
+            <div class="card-body">
+
+              <div class="card-title">
+                <h5 class="product_name">{{ p.name }}</h5>
+
+              </div>
+
+              <p class="card-text"><small class="text-muted">By&nbsp;&nbsp;</small>
+                <a>{{ p.manufacturer }}</a>
+              </p>
+              <p class="card-text">
+                <span class="badge badge-secondary">{{ p.quantity }} Units Available </span>
+                <span class="badge badge-secondary"> 54 Orders </span>
+                <span class="badge badge-secondary"> 36 Reviews </span>
+                <span class="badge badge-success"> In Stock </span>
+              </p>
+
+              <p class="card-text">
+                {{ p.description | Truncate : maxlength : false: '' }}
+                <span *ngIf=" maxlength < p.description.length ">
+                  ... <a (click)="fullLength(p.description.length)">Read more</a>
+                </span>
+                <span *ngIf=" maxlength == p.description.length ">
+                  <a (click)="fullLength(100)">Read Less</a>
+                </span>
+
+              </p>
+              <div class="card-text">
+                <div class="row">
+                  <div class="col-md-2">
+                    <h6 class="card-title">Category</h6>
+                  </div>
+                  <div class="col-md-10">{{ p.category }}</div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h6 class="card-title">Colour:</h6>
+                  </div>
+                  <div class="col-md-10">{{ p.color }}</div>
+                </div>
+              </div>
+
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          
+          <div class="col-md-3 priceBox">
+            <!-- <div class="vl"></div> -->
+            <div class="autoBox">
+              <div class="price">
+                <h5>Price: {{ p.price | currency: dollar }}</h5>
+              </div>
+              <div class="buttons">
+                <button type="button" class="btn btn-dark" (click)="editProduct(this.p)"><i class="fas fa-paper-plane"></i> Edit </button>
+                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+              </div>
+            </div>
+           
+          </div>
+        </div>
       </div>
     </div>
-  </div> -->
+    <!-- <div class="col-md-1"></div> -->
+  </div>
 
 
+  <!-- </div> -->
+
+  <!-- <p *ngFor="let p of products | paginate: config"> {{ p.name }} </p> -->
+
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+<!-- 
+  <app-login></app-login>
+  <app-registration></app-registration> -->
+  <!-- </div> -->
 </div>

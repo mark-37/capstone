@@ -18,7 +18,8 @@ import { ProductsComponent } from './products/products.component';
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    AboutComponent,
+    AboutComponent
+    ,
     LoginComponent,
     RegistrationComponent
     // ProductsComponent

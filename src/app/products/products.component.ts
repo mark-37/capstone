@@ -3,6 +3,9 @@ import { ProductsService } from '../services/products.service';
 
 import { Product } from '../models/product';
 
+import * as $ from 'jquery';
+declare var $: any;
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -13,29 +16,58 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   categories: any[];
 
-  currentSelection: string = 'Any';
+  
 
-  constructor(private _productService: ProductsService) { }
+  maxlength= 100;
+  
+  descriptionLength = 1000000000;
+
+  config: any = {
+    // id: 'foo',
+    // itemsPerPage: 5,
+    // currentPage: 1,
+    // totalItems: 1000
+  };
+
+  
+
+  constructor(private _productService: ProductsService) {
+    
+  }
 
   ngOnInit() {
     this.getProducts();
     this.getCategories();
     this.showProducts();
+
+    // this._productService.getProducts().subscribe((data: any) => {
+    //   this.config = {
+    //     // id: 'foo',
+    //     itemsPerPage: 10,
+    //     currentPage: 1,
+    //     totalItems: 1000
+    //   };
+  
+    // });
   }
 
   getProducts() {
     this._productService.getProducts().subscribe(
-      (data:Product[]) => {
-      //  let i = 0;
-      //   while(data[i]!=undefined) {
-      //     this.products.push(data[i])
-      //     i++;
-      //   }
+      (data: Product[]) => {
+
         this.products = data;
-        console.log();
+
+        this.config = {
+          // id: 'foo',
+          itemsPerPage: 10,
+          currentPage: 1,
+          totalItems: this.products.length
+        };
       },
       (err) => console.error(err)
     );
+
+
   }
 
   getCategories() {
@@ -51,9 +83,25 @@ export class ProductsComponent implements OnInit {
     // console.log(this.products);
   }
 
-  selectThis(data) {
-    this.currentSelection = data.innerText;
-    console.log("selected value is", data.innerText);
+
+  pageChanged(event) {
+    this.config.currentPage = event;
+  }
+
+  fullLength(len) {
+    this.maxlength = len;
+  };
+
+  
+  editProduct(data) {
+    console.log(data);
+    if(localStorage.getItem("sessionObject")) {
+      console.log('User is logged in');
+      console.log(localStorage.getItem("sessionObject"))
+    } else {
+      console.log('Please Continue to login!');
+      $('#myModal').modal('show');
+    }
   }
 
 }

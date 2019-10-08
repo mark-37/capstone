@@ -1,1 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" routerLink="/products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuMenu"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ currentSelection }}
+                    </button>
+                    <div class="dropdown-menu" id="dpm" aria-labelledby="dropdownMenuMenu">
+                        <button class="dropdown-item" #dropdownBtn id="dropdownBtn" *ngFor="let cat of categories"
+                            (click)="selectThis($event.target)">
+                            {{ cat.category }}
+                        </button>
+
+                    </div>
+                </div>
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+
+
+
+                <div class="dropdown" id="dropped">
+                    <div class="dropdown">
+
+                        <div *ngIf="!isLoggedIn(); else elseBlock" class="loginRegisterButton">
+                            <a href="" (click)="sample($event)">Login</a> /
+                            <a href="" (click)="sample($event)">Register</a>
+                        </div>
+
+                        <ng-template #elseBlock>
+                            <i class="fa fa-user-circle fa-2x dropdown-toggle" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-expanded="true"></i>
+                        </ng-template>
+
+                        <div class="dropdown-menu dropdown-menu-right" id="dropdown-menu-content"
+                            aria-labelledby="dropdownMenuButton">
+                            <h6 class="dropdown-header" *ngIf="currentUser!=null">Logged in as {{ currentUser.email }} !
+                            </h6>
+                            <div class="dropdown-items">
+                                <button class="btn btn-primary btn-sm" (click)="logout()">Logout Now!</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<app-login></app-login>
+<app-registration></app-registration>
+
 <router-outlet></router-outlet>
