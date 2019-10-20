@@ -14,15 +14,25 @@ export class AppComponent implements OnInit {
   title = 'capstone';
 
   currentUser: string = null;
-  currentSelection: string = 'Any';
+  currentSelection = 'Any';
+  categories: any[];
 
-
-  constructor() {
+  constructor(private _productService: ProductsService) {
 
   }
 
   ngOnInit() {
+    this.getCategories();
+  }
 
+  getCategories() {
+    this._productService.getCategories().subscribe(
+      (data: any) => {
+        this.categories = data;
+        console.log(this.categories);
+      },
+      (err) => console.error(err)
+    );
   }
 
   isLoggedIn() {
@@ -58,5 +68,8 @@ export class AppComponent implements OnInit {
     localStorage.clear();
   }
 
+  selectThis(data) {
+    this.currentSelection = data.innerHTML;
+  }
 
 }

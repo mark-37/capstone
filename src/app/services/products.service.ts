@@ -29,12 +29,12 @@ export class ProductsService {
   }
 
   /* Method to edit product on server */
-  editProduct(productData : Product) {
-    return this._http.put(this._url, productData, this.httpOptions );
+  editProduct(productData: Product) {
+    return this._http.put(this._url+`/${productData.id}`, productData, this.httpOptions );
   }
 
   /* Method to delete product on server */
-  deleteProduct(id : string) {
+  deleteProduct(id: string) {
     return this._http.delete(this._url+`/${id}`, this.httpOptions);
   }
 

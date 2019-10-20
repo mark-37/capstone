@@ -14,12 +14,11 @@ declare var $: any;
 export class ProductsComponent implements OnInit {
 
   products: Product[];
-  categories: any[];
+  // categories: any[];
 
-  
 
-  maxlength= 100;
-  
+  maxlength = 100;
+
   descriptionLength = 1000000000;
 
   config: any = {
@@ -29,15 +28,15 @@ export class ProductsComponent implements OnInit {
     // totalItems: 1000
   };
 
-  
+
 
   constructor(private _productService: ProductsService) {
-    
+
   }
 
   ngOnInit() {
     this.getProducts();
-    this.getCategories();
+    // this.getCategories();
     this.showProducts();
 
     // this._productService.getProducts().subscribe((data: any) => {
@@ -47,7 +46,7 @@ export class ProductsComponent implements OnInit {
     //     currentPage: 1,
     //     totalItems: 1000
     //   };
-  
+
     // });
   }
 
@@ -70,14 +69,15 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  getCategories() {
-    this._productService.getCategories().subscribe(
-      (data: any) => {
-        this.categories = data;
-      },
-      (err) => console.error(err)
-    );
-  }
+  // getCategories() {
+  //   this._productService.getCategories().subscribe(
+  //     (data: any) => {
+  //       this.categories = data;
+  //       console.log(this.categories);
+  //     },
+  //     (err) => console.error(err)
+  //   );
+  // }
 
   showProducts() {
     // console.log(this.products);
@@ -90,14 +90,14 @@ export class ProductsComponent implements OnInit {
 
   fullLength(len) {
     this.maxlength = len;
-  };
+  }
 
-  
+
   editProduct(data) {
     console.log(data);
-    if(localStorage.getItem("sessionObject")) {
+    if (localStorage.getItem('sessionObject')) {
       console.log('User is logged in');
-      console.log(localStorage.getItem("sessionObject"))
+      console.log(localStorage.getItem('sessionObject'));
     } else {
       console.log('Please Continue to login!');
       $('#myModal').modal('show');
@@ -105,10 +105,25 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteProduct(data) {
-    this._productService.deleteProduct(data).subscribe(
-      (data)=> console.log(data),
-      (err) => console.error(err)
-    );
+
+    console.log(data);
+    if (localStorage.getItem('sessionObject')) {
+      console.log('User is logged in');
+      console.log(localStorage.getItem('sessionObject'));
+
+      this._productService.deleteProduct(data).subscribe(
+        (dt) => {
+          console.log(dt);
+          alert('Data deleted Succesfully!');
+          window.location.reload();
+        },
+        (err) => console.error(err)
+      );
+    } else {
+      console.log('Please Continue to login!');
+      $('#myModal').modal('show');
+    }
+
   }
 
 }

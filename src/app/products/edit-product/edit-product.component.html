@@ -1,9 +1,15 @@
 <div class="edit-component container">
-  <form class="was-validated editForm">
+  <form class="was-validated editForm" #editForm="ngForm" (ngSubmit)="editProduct()">
     <div class="form-group">
       <label for="pname">Product Name:</label>
-      <input type="text" class="form-control" id="pname" placeholder="Enter username"  [(value)]="product.name" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
+      <input type="text" class="form-control"
+       id="pname" placeholder="Enter username"  
+       [(value)]="product.name" name="productName" 
+       [(ngModel)]="product.name"
+       #productName="ngModel"
+       required>
+      
+       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
 
@@ -11,21 +17,32 @@
       <div class="row">
         <div class="col-md-4 form-inline">
           <label for="price">Price: </label>
-          <input type="number" class="form-control" id="price" [(value)]="product.price" required>
+          <input type="number" class="form-control" id="price" [(value)]="product.price" 
+          name="price"
+          [(ngModel)]="product.price"
+          #price="ngModel"
+          required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
 
         <div class="col-md-4 form-inline">
           <label for="quantity">Quantity: </label>
-          <input type="number" class="form-control" id="quantity" [(value)]="product.quantity" required>
+          <input type="number" class="form-control" id="quantity" [(value)]="product.quantity" 
+          name="quantity" [(ngModel)]="product.quantity"
+          #quantity="ngModel"
+          required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
 
         <div class="col-md-4 form-inline">
           <label for="color">Color: </label>
-          <input type="text" class="form-control" id="color" [(value)]="product.color" required>
+          <input type="text" class="form-control" id="color" [(value)]="product.color" 
+          name="color"
+          [(ngModel)]="product.color"
+          #color="ngModel"
+          required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
@@ -38,14 +55,21 @@
       <div class="row">
         <div class="col-md-4 form-inline">
           <label for="category">Category: </label>
-          <select class="form-controls" [(ngModel)]="catSelected" id="category" name="select" required>
+          <select class="form-controls" [(ngModel)]="product.category" id="category" 
+          name="category"
+          #category="ngModel"
+          required>
             <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
           </select>
         </div>
 
         <div class="col-md-4 form-inline">
           <label for="manufacturer">Manufacturer: </label>
-          <input type="text" class="form-control" id="manufacturer" placeholder="Company Name" name="manufacturer" [(value)]="product.manufacturer" required>
+          <input type="text" class="form-control" id="manufacturer" placeholder="Company Name" 
+          name="manufacturer" [(value)]="product.manufacturer" 
+          [(ngModel)]="product.manufacturer"
+          #manufacturer="ngModel"
+          required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
@@ -55,13 +79,16 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="description">Description: </label>
-        <textarea class="form-control" rows="5" id="comment" [(value)]="product.description" required></textarea>
+        <textarea class="form-control" rows="5" id="comment" [(value)]="product.description" 
+        name="description" [(ngModel)]="product.description"
+        #description="ngModel"
+        required></textarea>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="submit" class="btn btn-light">Cancel</button>
+    <button type="" class="btn btn-light" >Cancel</button>
   </form>
 </div>

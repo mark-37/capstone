@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/product';
+import { Edit } from 'src/app/models/Edit';
+
+import { FormsModule, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-product',
@@ -12,6 +15,20 @@ export class EditProductComponent implements OnInit {
 
   id: string;
   catSelected: string;
+
+  private name: string;
+  private price: number;
+  private quantity: number;
+  private color: string;
+  private manufacturer: string;
+  private category: string;
+  private description: string;
+
+
+  model: Edit = new Edit();
+
+  @ViewChild('editForm') form: any;
+
 
   product: Product = {
     id: null,
@@ -25,11 +42,11 @@ export class EditProductComponent implements OnInit {
   };
   categories: any[] = [];
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService) { 
-    this.route.params.subscribe( params => {
+  constructor(private route: ActivatedRoute, private productService: ProductsService, private router: Router) {
+    this.route.params.subscribe(params => {
       this.id = params.id;
     });
-    
+
     productService.searchProduct(this.id).subscribe(
       (data) => {
         console.log(data[0]);
@@ -47,14 +64,27 @@ export class EditProductComponent implements OnInit {
           this.categories.push(element.category);
         });
         // console.log();
-      },  
+      },
       (err) => console.error(err)
     );
-  
+
   }
 
   ngOnInit() {
-    
+
+  }
+
+  editProduct(editForm) {
+    console.log(this.product);
+    // this.form.reset();
+    this.productService.editProduct(this.product).subscribe(
+      (data) => {
+        console.log(data);
+        alert('data edited succesfully!');
+        this.router.navigate(['/products']);
+      },
+      (err) => console.error(err)
+    );
   }
 
 }
