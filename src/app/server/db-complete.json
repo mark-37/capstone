@@ -116,7 +116,7 @@
       "id": "4ebfe1b0-50e4-4589-8a27-43f4ee383c71",
       "name": "Unbranded Fresh Bacon",
       "price": "200.00",
-      "quantity": 12,
+      "quantity": 130,
       "color": "pink",
       "manufacturer": "Hagenes, Gaylord and Boyer",
       "category": "Grocery",
@@ -151,16 +151,6 @@
       "manufacturer": "Predovic, Fritsch and Paucek",
       "category": "Clothing",
       "description": "Vero quis quia voluptatem suscipit est est dolores omnis qui. Dolor commodi itaque iure ipsum nesciunt ipsum quos. Impedit nihil sunt optio sed sunt velit corporis libero. Quis et fugit. Expedita deserunt reprehenderit tenetur qui eaque molestias praesentium et nostrum.\n \rQuis laborum quisquam autem libero occaecati accusamus. Omnis voluptates eaque vitae adipisci rerum velit voluptatem cupiditate quidem. Asperiores nemo aut animi pariatur non voluptatem voluptatem.\n \rBlanditiis enim quia aliquid a rerum vel qui eius. Eveniet repudiandae quas aspernatur error. Totam tempore molestiae adipisci sequi similique facere repellendus sunt vero."
-    },
-    {
-      "id": "7c54f941-db63-4b73-87e8-94d1888b7493",
-      "name": "Unbranded Concrete Fish",
-      "price": "160.00",
-      "quantity": 68,
-      "color": "pink",
-      "manufacturer": "Casper, McGlynn and Block",
-      "category": "Tools",
-      "description": "Vitae similique qui labore qui eos minima consequuntur. Eos quos ut officiis corporis molestiae non. Aut eveniet enim cum. Inventore est cum exercitationem repellendus quae veritatis. Explicabo et temporibus.\n \rOmnis voluptas corporis veritatis ipsam. Eius natus quod nisi. Magni amet voluptatum ut aut qui autem deserunt voluptatem. Fuga beatae similique ratione necessitatibus est minus modi nihil. Dolore accusamus neque doloremque magni dolor laudantium. Temporibus est dolore exercitationem quod.\n \rPossimus error non placeat ut sunt alias facere nihil. Et aut dolor assumenda quia nobis velit animi ullam officiis. Recusandae modi animi ut. Vero iste fugit doloremque non. Dolorem voluptatem modi quas esse et expedita nostrum."
     },
     {
       "id": "7bd65799-f361-4927-9cc7-8a7c4cd07d6b",
@@ -9841,16 +9831,6 @@
       "manufacturer": "Johnson - Hegmann",
       "category": "Tools",
       "description": "Consequatur aut rerum. Magni facere atque iste. Aut maiores voluptas hic. Nostrum tenetur dolor minima.\n \rError maiores dignissimos quam adipisci magni quia. Asperiores voluptatem ut nostrum quis ipsam ex quia. Optio aut aut ad. Aspernatur autem et.\n \rFugit qui delectus beatae ea consequatur ea tempore. Voluptatem eligendi recusandae. Amet atque perferendis quidem rerum eveniet est omnis explicabo facilis. Quis et exercitationem."
-    },
-    {
-      "id": "0867d99a-11d2-4b7d-a2c2-15bd6636c4a3",
-      "name": "Incredible Cotton Towels",
-      "price": "215.00",
-      "quantity": 20,
-      "color": "white",
-      "manufacturer": "Hackett and Sons",
-      "category": "Games",
-      "description": "Rerum molestias et temporibus dolore quibusdam velit laudantium ratione. Voluptatum et officiis rem laborum molestias sunt ut nobis. Veniam sapiente inventore voluptas et. Dolor dignissimos blanditiis.\n \rLaboriosam quis suscipit. Qui numquam eius accusamus dolores unde ut minima voluptates. Dicta voluptates et.\n \rOdio deserunt voluptate expedita voluptatum atque cumque est id sed. Quisquam sequi veritatis voluptate saepe porro esse inventore. Tenetur nulla odit facilis dolorem."
     }
   ]
 }

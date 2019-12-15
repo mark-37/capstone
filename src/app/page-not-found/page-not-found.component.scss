@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,900&display=swap');
+
+.main-wrapper {
+    // background-color: ;
+    // background-image: linear-gradient(to top right,rgb(224, 0, 224), rgb(241, 35, 241));
+    height: 100vh;
+    width: auto;
+    text-align: center;
+}
+
+$color-404: rgb(151, 149, 149);
+
+.pageNotFound {
+    // color: white;
+    font-family: 'Roboto', sans-serif;
+
+    .Primary-Text {
+        font-size: 12.5rem;
+        font-weight: 900;
+        color: $color-404;
+    }
+
+    .bottom-line {
+        // border-bottom: 1px solid red;
+        // border-width: 1%;
+    }
+
+    .bottom-line:before {
+        content : "";
+        position: absolute;
+        margin-left: 25%;
+        left    : 0;
+        bottom  : 0;
+        height  : 1px;
+        width   : 25%;  /* or 100px */
+        border-bottom:1px solid rgb(231, 231, 231);
+      }
+
+}
